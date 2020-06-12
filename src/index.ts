@@ -29,6 +29,7 @@ export = (app: Application) => {
 
   await Promise.all(workflow_ids.map(async (workflow_id) => {
     try {
+      console.log(`Looking for runs of workflow ID ${workflow_id}, and ref ${ref}`);
       const { data } = await github.actions.listWorkflowRuns(context.repo({
         workflow_id,
         ref
