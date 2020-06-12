@@ -42,10 +42,10 @@ export = (app: Application) => {
       console.log(`Found ${runningWorkflows.length} runs in progress.`);
       for (const {id, head_sha, status} of runningWorkflows) {
         console.log('Cancelling another run: ', {id, ref, head_sha, status});
-        const res = await github.actions.cancelWorkflowRun(context.repo({
-          run_id: id
-        }));
-        console.log(`Cancel run ${id} responded with status ${res.status}`);
+        // const res = await github.actions.cancelWorkflowRun(context.repo({
+        //   run_id: id
+        // }));
+        // console.log(`Cancel run ${id} responded with status ${res.status}`);
       }
     } catch (e) {
       const msg = e.message || e;
