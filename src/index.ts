@@ -40,8 +40,8 @@ export = (app: Application) => {
         workflow => workflow.head_sha !== sha && workflow.status !== 'completed'
       );
       console.log(`Found ${runningWorkflows.length} runs in progress.`);
-      for (const {id, head_sha, status} of runningWorkflows) {
-        console.log('Cancelling another run: ', {id, ref, head_sha, status});
+      for (const {id, head_sha, head_branch, status} of runningWorkflows) {
+        console.log('Cancelling another run: ', {id, head_branch, head_sha, status});
         // const res = await github.actions.cancelWorkflowRun(context.repo({
         //   run_id: id
         // }));
