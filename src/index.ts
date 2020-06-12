@@ -1,4 +1,4 @@
-import { Application, GitHubAPI } from 'probot' // eslint-disable-line no-unused-vars
+import { Application } from 'probot' // eslint-disable-line no-unused-vars
 
 export = (app: Application) => {
   app.on('pull_request.synchronize', async (context) => {
